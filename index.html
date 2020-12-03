@@ -1,74 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>        
-        <title>AngularApp | HandsOn</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>        
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script> 
-        <script src="controller.js"></script>
-       <!-- <script type="text/javascript" src="/angular/angular.min.js"></script>
-	    <script type="text/javascript" src="/angular/angular-route.min.js"></script> -->
-	
-    </head>
-    <body ng-app="mainApp"> 
-        <em>Welcome to my Angular site :) </em> <br><br>
-        <strong>This is Loop 20.</strong>
 
-        <div ng-controller="loopCtrl">
-            <ul>
-                <li ng-repeat="item in myRange">
-                    {{item}}<br>
-                </li>
-            </ul>
+<head>
+    <title>AngularApp | HandsOn</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
+    <script src="angular/controller.js"></script>
+</head>
+
+<body ng-app="mainApp">
+    <h1>Welcome to my Angular site :) </h1> <br><br>
+    <br><strong>This is Loop</strong><br>
+    <div ng-controller="loopCtrl">
+        <ul>
+            <li ng-repeat="item in myRange">
+                {{item}}<br>
+            </li>
+        </ul>
+    </div>
+    <br><strong>Change counter</strong><br>
+    <div ng-controller="counterCtrl">
+        <div>
+            <input type="text" ng-model="myText">
+            <br>You updated this text box {{counter}} times.
+            <br>Old value is {{oldValue}} .
+            <br>New value is {{newValue}} .
         </div>
+    </div>
+    <br><strong>Form example</strong><br>
+    <div ng-controller="personCtrl">
+        First Name: <input type="text" ng-model="firstName"><br>
+        Last Name: <input type="text" ng-model="lastName"><br>
+        <br>
+        Full Name: {{fullName()}}
+    </div>
+    <div ng-controller="myCtrlTest">
+    </div>
+    <div ng-controller="myFactoryTest">
+    </div>
+    <br><strong>Random value generator</strong><br>
+    <div ng-controller="myServiceTest">
+        {{generateRandom()}}
+        <br>Random value is: {{randomNumber*100}}
+    </div>
+    <br><strong>Checkbox options</strong><br>
+    <table border="1">
+        <tr>
+            <td><input type="checkbox" ng-model="enableDisableButton">Disable Button</td>
+            <td><button ng-disabled="enableDisableButton">Click Me!</button></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" ng-model="showHide1">Show Button</td>
+            <td><button ng-show="showHide1">Click Me!</button></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" ng-model="showHide2">Hide Button</td>
+            <td><button ng-hide="showHide2">Click Me!</button></td>
+        </tr>
+        <tr>
+            <td>
+                <p>Total click: {{ clickCounter }}</p>
+            </td>
+            <td><button ng-click="clickCounter = clickCounter + 1">Click Me!</button></td>
+        </tr>
+    </table>
+    <br><strong>Select options</strong><br>
+    <br>
+    <div ng-controller="selectOption">
+        <select ng-model="selectedName" ng-options="x for x in names"></select>
+</body>
 
-        <div ng-controller="counterCtrl">	
-            <div >
-                <input type="text" ng-model="myText">
-                <br>You updated this text box {{counter}} times.
-                <br>Old value is {{oldValue}} .
-                <br>New value is {{newValue}} .
-            </div>
-        </div>
-
-        <div ng-controller="personCtrl">  
-            First Name: <input type="text" ng-model="firstName"><br>  
-            Last Name: <input type="text" ng-model="lastName"><br>  
-            <br>          
-            Full Name: {{fullName()}}  
-            </div>    
-            
-            <div ng-controller="myCtrlTest">              
-            </div>
-            <div ng-controller="myFactoryTest">              
-           </div>
-           <div ng-controller="myServiceTest">
-            {{generateRandom()}}
-            <br>Random value is: {{randomNumber*100}}
-        </div>
-
-        <br><br><br><br>
-        <table border = "1">  
-            <tr>  
-               <td><input type = "checkbox" ng-model = "enableDisableButton">Disable Button</td>  
-               <td><button ng-disabled = "enableDisableButton">Click Me!</button></td>  
-            </tr>  
-            <tr>  
-               <td><input type = "checkbox" ng-model = "showHide1">Show Button</td>  
-               <td><button ng-show = "showHide1">Click Me!</button></td>  
-            </tr>  
-             <tr>  
-               <td><input type = "checkbox" ng-model = "showHide2">Hide Button</td>  
-               <td><button ng-hide = "showHide2">Click Me!</button></td>  
-            </tr>  
-             <tr>  
-               <td><p>Total click: {{ clickCounter }}</p></td>  
-               <td><button ng-click = "clickCounter = clickCounter + 1">Click Me!</button></td>  
-            </tr>  
-         </table>  
-
-         <br>
-         <div ng-controller="selectOption">  
-            <select ng-model="selectedName" ng-options="x for x in names" ></select>      
-                 
-    </body>
 </html>
