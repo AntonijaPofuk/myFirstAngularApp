@@ -66,7 +66,22 @@ $scope.total = function(){
     <p ng-hide="active">Please click a menu item</p>
     <p ng-show="active">You chose <b>{{active}}</b></p>
 <br>
-
+<div ng-controller="jsonReadData" >
+    <h3>JSON Fetching example </h3>  
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Color</th>
+        </tr>
+        <!-- <h4>Original JSON file: {{myObject}}</h4>     -->
+        <tr ng-repeat="item in myObject" >
+            <th>{{item.Name}}</th>
+            <th>{{item.Age}}</th>
+            <th>{{item.Color}}</th>
+        </tr>
+    </table>
+</div>   
     <br><strong>This is Loop</strong><br>
     <div ng-controller="loopCtrl">
         <ul>

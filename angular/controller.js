@@ -97,6 +97,13 @@ app.controller("selectOption", function ($scope) {
   $scope.names = ["Java", "PHP", ".Net", "AngularJS", "C/C++"];
 });
 
+app.controller("jsonReadData", function($scope, $http) {
+  $http.get("database.json")
+  .then(function (res) {
+      $scope.myObject=res.data.records;
+  });                  
+});
+
 
 
 
