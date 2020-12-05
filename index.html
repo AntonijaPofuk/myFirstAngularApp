@@ -53,6 +53,7 @@ $scope.total = function(){
 }
 </script> -->
 <body ng-app="mainApp">
+
     <h1>Welcome to my Angular site :) </h1> <br><br>
     <nav class="{{active}}" ng-click="$event.preventDefault()">   
         <a href="#" class="home" ng-click="active='home'">Home</a>
@@ -66,22 +67,37 @@ $scope.total = function(){
     <p ng-hide="active">Please click a menu item</p>
     <p ng-show="active">You chose <b>{{active}}</b></p>
 <br>
-<div ng-controller="jsonReadData" >
-    <h3>JSON Fetching example </h3>  
-    <table border="1">
+<div ng-controller="jsonReadData" >    
+       <table border="1">
         <tr>
             <th>Name</th>
             <th>Age</th>
             <th>Color</th>
         </tr>
-        <!-- <h4>Original JSON file: {{myObject}}</h4>     -->
-        <tr ng-repeat="item in myObject" >
+       <tr ng-repeat="item in myObject" >
             <th>{{item.Name}}</th>
             <th>{{item.Age}}</th>
-            <th>{{item.Color}}</th>
+            <th>{{item.Color}}</th>         
         </tr>
+        <th>---</th>
+        <th> Total: {{}}</th>
+        <th>---</th>
     </table>
-</div>   
+</div>
+<div ng-controller="jsonReadData">
+    <div>        
+        <input type="text" ng-model="searchString" placeholder="Enter your search" />
+    </div>
+    <ul>
+        <!-- Render a li element for every entry in the items array. Notice
+             the custom search filter "searchFor". It takes the value of the
+             searchString model as an argument.
+         -->
+        <li ng-repeat="item in myObject | searchFor:searchString">
+            <p>{{item.Name}}</p>
+        </li>
+    </ul>
+</div>  
     <br><strong>This is Loop</strong><br>
     <div ng-controller="loopCtrl">
         <ul>
