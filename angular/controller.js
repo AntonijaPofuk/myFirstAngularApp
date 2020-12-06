@@ -124,4 +124,20 @@ app.filter('searchFor', function(){
   };
 });
 
+app.filter('Demofilter',function(){
+  return function(input)
+  {
+      return input + " Tutorial"
+  }
+});
+
+
+app.filter('SumFilter',function(){
+  return function(input)
+  {
+      return input;
+  }
+});
+
+
 
