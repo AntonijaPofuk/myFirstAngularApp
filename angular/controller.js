@@ -1,44 +1,5 @@
 var app = angular.module("mainApp", []);
 
-/* 
-var app = angular.module('mainApp',['ngRoute']);
-app.config(function($routeProvider){
-	$routeProvider
-	.when('/',{
-		templateUrl: 'index.html'
-	})
-	.when('/login',{
-		templateUrl: 'login.html'
-	})
-	.when('/dashboard',{
-		resolve: {
-			"check":function($location, $rootScope){
-				if ($rootScope.loggedIn){
-					$location.path('/');
-				} 
-				else {
-					templateUrl: 'dashboard.html';
-				} 
-			}
-		}	
-	})
-	.otherwise({
-		template: 'ERROR 404!'
-	});
-});
-
-app.controller('loginCtrl', function($scope, $location){
-    $scope.submit = function(){        
-        if ($scope.username=='admin' && $scope.password=='admin' ){
-			$rootScope.loggedIn = true;
-			$location.path('/dashboard');
-        } else {
-			alert("Wrong input!");
-		}
-    };
-});
-*/
-
 app.controller("loopCtrl", function ($scope) {
   var range = 10;
   var myRange = [];
@@ -101,20 +62,27 @@ app.controller("jsonReadData", function($scope, $http) {
   $http.get("database.json")
   .then(function (res) {
       $scope.myObject=res.data.records;
-  });                  
+  });   
+  $scope.getTotal = function(){
+    var total = 0;
+    for(var i = 0; i < $scope.myObject.length; i++){
+        var item = $scope.myObject[i];
+        var itemInt = parseInt(item.Age);
+        console.log(typeof(itemInt));
+        total += itemInt;
+    }
+    return total;
+  }             
 });
 
 app.filter('searchFor', function(){
-  // All filters must return a function. The first parameter
-  // is the data that is to be filtered, and the second is an
-  // argument that may be passed with a colon (searchFor:searchString)
+  // All filters must return a function
   return function(arr, searchString){
       if(!searchString){
           return arr;
       }
       var result = [];
       searchString = searchString.toLowerCase();
-      // Using the forEach helper method to loop through the array
       angular.forEach(arr, function(item){
           if(item.Name.toLowerCase().indexOf(searchString) !== -1){
               result.push(item);
@@ -132,12 +100,7 @@ app.filter('Demofilter',function(){
 });
 
 
-app.filter('SumFilter',function(){
-  return function(input)
-  {
-      return input;
-  }
-});
+
 
 
 
