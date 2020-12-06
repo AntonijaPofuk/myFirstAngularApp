@@ -59,7 +59,7 @@ app.controller("selectOption", function ($scope) {
 });
 
 app.controller("jsonReadData", function($scope, $http) {
-  $http.get("database.json")
+  $http.get("data/database.json")
   .then(function (res) {
       $scope.myObject=res.data.records;
   });   
