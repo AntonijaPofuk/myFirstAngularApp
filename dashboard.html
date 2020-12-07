@@ -47,21 +47,57 @@
       <div class="fakeimg">Fake Image</div>
       <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
       <h3>Some Links</h3>
-      <p>Lorem ipsum dolor sit ame.</p>
-      <ul class="nav nav-pills flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
+      <p>Lorem ipsum dolor sit ame.</p>    
+      <ul id="accordion">
+        <div class="card">
+          <div class="card-header">
+            <div class=" nav nav-pills flex-column card-link" data-toggle="collapse" href="#collapseOne">
+                <a class="collapsed card-link" data-toggle="collapse" href="#collapseOne">
+                    Collapsible Group Item #1
+          </div>
+          <div id="collapseOne" class="collapse show" data-parent="#accordion">
+            <div class="card-body">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Link 1.1</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Link 1.2</a>
+                  </li>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+            Collapsible Group Item #2
+          </a>
+          </div>
+          <div id="collapseTwo" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Link 2.1</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Link 2.2</a>
+                  </li>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+              Collapsible Group Item #3
+            </a>
+          </div>
+          <div id="collapseThree" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Link 3.1</a>
+                  </li>            </div>
+          </div>
+        </div>
+      </div>
+    </ul>     
       <hr class="d-sm-none">
     </div>
     <div class="col-sm-8">
@@ -79,8 +115,7 @@
     </div>
   </div>
 </div>
-
-<div class="jumbotron text-center" style="margin-bottom:0">
+<div class="jumbotron text-center bg-dark" style="margin-bottom:0"> 
   <p>Footer</p>
 </div>
 
