@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>AngularApp | HandsOn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>   
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
     <script type="text/javascript" src="controllers/controller.js"></script>
@@ -17,11 +23,11 @@
         <a href="dashboard.html" class="dashboard">Dashboard</a>
         <a href="login.html" class="login" ng-click="active='login'">Login</a>
         <a href="todo.html" class="todo" ng-click="active='todo'">ToDo</a>
-
     </nav>
     <p ng-hide="active">Please click a menu item</p>
     <p ng-show="active">You chose <b>{{active}}</b></p>
 <br>
+<div ng-include="'login.html'"></div>
 <div ng-controller="jsonReadData" >    
        <table border="1">
         <tr>
@@ -50,7 +56,6 @@ This is my filter : {{"tutorial" | Demofilter}}
         </li>
     </ul>
 </div>  
-
     <br><strong>This is Loop</strong><br>
     <div ng-controller="loopCtrl">
         <ul>
