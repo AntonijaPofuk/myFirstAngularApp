@@ -1,46 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>AngularApp | HandsOn</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.3.1118/styles/kendo.common.min.css">
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.3.1118/styles/kendo.rtl.min.css">
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.3.1118/styles/kendo.default.min.css">
-    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.3.1118/styles/kendo.mobile.all.min.css">  
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.3.1118/styles/kendo.mobile.all.min.css">
     <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <!-- <script src="https://kendo.cdn.telerik.com/2020.3.1118/js/angular.min.js"></script> -->
+    <!-- <script src="https://kendo.cdn.telerik.com/2020.3.1118/js/angular.min.js"></script> -->
     <script src="https://kendo.cdn.telerik.com/2020.3.1118/js/jszip.min.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2020.3.1118/js/kendo.all.min.js"></script>  
+    <script src="https://kendo.cdn.telerik.com/2020.3.1118/js/kendo.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"> </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
     <script type="text/javascript" src="controllers/controller.js"></script>
-    <link rel="stylesheet" href="style/style.css" >
+    <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-</head>
+    </head>
+
 <body ng-app="mainApp">
-  
-    <script>
-     $(function() {
-
-            $("#kendoVersion").text(kendo.version);
-
-        });
-   
-
-    </script>
-
     <h1>Welcome to my Angular site :) </h1> <br><br>
     <p>Hello <a href="https://docs.telerik.com/kendo-ui/intro/first-steps">Kendo UI for jQuery</a>!
         This is <strong id="kendoVersion"></strong>. version of Kendo.</p>
 
-    <nav class="{{active}}" >   
+    <nav class="{{active}}">
         <a href="#" class="home" ng-click="active='home'">Home</a>
         <a href="dashboard.html" class="dashboard" ng-click="active='dashboard'">Dashboard</a>
         <a href="login.html" class="login" ng-click="active='login'">Login</a>
@@ -48,94 +37,151 @@
     </nav>
     <p ng-hide="active">Please click a menu item</p>
     <p ng-show="active">You chose <b>{{active}}</b></p>
-<br>
-<div ng-include="'login.html'"></div>
-<div ng-controller="jsonReadData" >    
-       <table border="1">
-        <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Color</th>
-        </tr>
-       <tr ng-repeat="item in myObject" >
-            <th>{{item.Name}}</th>
-            <th>{{item.Age}}</th>
-            <th>{{item.Color}}</th>         
-        </tr>
-        <th>---</th>
-        <td>Total: {{ getTotal() }}</td>
-        <th>---</th>
-    </table>
-</div>
-This is my filter : {{"tutorial" | Demofilter}}
-<div ng-controller="jsonReadData">
-    <div>        
-        <input type="text" ng-model="searchString" placeholder="Enter your search" />
-    </div>
-    <ul>
-        <li ng-repeat="item in myObject | searchFor:searchString">
-            <p>{{item.Name}}</p>
-        </li>
-    </ul>
-</div>  
-    <br><strong>This is Loop</strong><br>
-    <div ng-controller="loopCtrl">
-        <ul>
-            <li ng-repeat="item in myRange">
-                {{item}}<br>
-            </li>
-        </ul>
-    </div>
-    <br><strong>Change counter</strong><br>
-    <div ng-controller="counterCtrl">
-        <div>
-            <input type="text" ng-model="myText">
-            <br>You updated this text box {{counter}} times.
-            <br>Old value is {{oldValue}} .
-            <br>New value is {{newValue}} .
-        </div>
-    </div>
-    <br><strong>Form example</strong><br>
-    <div ng-controller="personCtrl">
-        First Name: <input type="text" ng-model="firstName"><br>
-        Last Name: <input type="text" ng-model="lastName"><br>
-        <br>
-        Full Name: {{fullName()}}
-    </div>
-    <div ng-controller="myCtrlTest">
-    </div>
-    <div ng-controller="myFactoryTest">
-    </div>
-    <br><strong>Random value generator</strong><br>
-    <div ng-controller="myServiceTest">
-        {{generateRandom()}}
-        <br>Random value is: {{randomNumber*100}}
-    </div>
-    <br><strong>Checkbox options</strong><br>
-    <table border="1">
-        <tr>
-            <td><input type="checkbox" ng-model="enableDisableButton">Disable Button</td>
-            <td><button ng-disabled="enableDisableButton">Click Me!</button></td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" ng-model="showHide1">Show Button</td>
-            <td><button ng-show="showHide1">Click Me!</button></td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" ng-model="showHide2">Hide Button</td>
-            <td><button ng-hide="showHide2">Click Me!</button></td>
-        </tr>
-        <tr>
-            <td>
-                <p>Total click: {{ clickCounter }}</p>
-            </td>
-            <td><button ng-click="clickCounter = clickCounter + 1">Click Me!</button></td>
-        </tr>
-    </table>
-    <br><strong>Select options</strong><br>
     <br>
-    <div ng-controller="selectOption">
-        <select ng-model="selectedName" ng-options="x for x in names"></select>
-</body>
+    <div ng-include="'login.html'"></div>
+
+    <div class="text-center">
+        This is my filter : {{"tutorial" | Demofilter}}
+        <div class="align-center" ng-controller="jsonReadData">
+
+            <input type="text" ng-model="searchString" placeholder="Enter your search" />
+            <table border="1">
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Color</th>
+                </tr>
+                <tr ng-repeat="item in myObject | searchFor:searchString">
+                    <p>{{item.Name}}</p>
+                    <th>{{item.Name}}</th>
+                    <th>{{item.Age}}</th>
+                    <th>{{item.Color}}</th>
+                </tr>
+                <th>---</th>
+                <td>Total: {{ getTotal() }}</td>
+                <th>---</th>
+            </table>
+        </div>
+        <br><strong>This is Loop</strong><br>
+        <div ng-controller="loopCtrl">
+            <ul>
+                <li ng-repeat="item in myRange">
+                    {{item}}<br>
+
+                </li>
+            </ul>
+        </div>
+        <br><strong>Change counter</strong><br>
+        <div ng-controller="counterCtrl">
+            <div>
+                <input type="text" ng-model="myText">
+                <br>You updated this text box {{counter}} times.
+                <br>Old value is {{oldValue}} .
+                <br>New value is {{newValue}} .
+            </div>
+        </div>
+        <br><strong>Form example</strong><br>
+        <div ng-controller="personCtrl">
+            First Name: <input type="text" ng-model="firstName"><br>
+            Last Name: <input type="text" ng-model="lastName"><br>
+            <br>
+            Full Name: {{fullName()}}
+        </div>
+        <div ng-controller="myCtrlTest">
+        </div>
+        <div ng-controller="myFactoryTest">
+        </div>
+        <br><strong>Random value generator</strong><br>
+        <div ng-controller="myServiceTest">
+            {{generateRandom()}}
+            <br>Random value is: {{randomNumber*100}}
+        </div>
+        <br><strong>Checkbox options</strong><br>
+        <table border="1">
+            <tr>
+                <td><input type="checkbox" ng-model="enableDisableButton">Disable Button</td>
+                <td><button ng-disabled="enableDisableButton">Click Me!</button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" ng-model="showHide1">Show Button</td>
+                <td><button ng-show="showHide1">Click Me!</button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" ng-model="showHide2">Hide Button</td>
+                <td><button ng-hide="showHide2">Click Me!</button></td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Total click: {{ clickCounter }}</p>
+                </td>
+                <td><button ng-click="clickCounter = clickCounter + 1">Click Me!</button></td>
+            </tr>
+        </table>
+        <br><strong>Select options</strong><br>
+        <br>
+        <div ng-controller="selectOption">
+            <select ng-model="selectedName" ng-options="x for x in names"></select>
+<br>
+            <div id="ordersGrid"></div>
+
+            <script>
+                 $(function() {
+
+$("#kendoVersion").text(kendo.version);
+
+               var orderData = [
+  { OrderID: 1, OrderDate: "2017-11-06T12:00:00", Freight: 12.34, ShipCity: "Antwerp", ShipCountry: "Belgium" },
+  { OrderID: 2, OrderDate: "2019-03-02T12:00:00", Freight: 23.45, ShipCity: "Singapore", ShipCountry: "Singapore" },
+  { OrderID: 3, OrderDate: "2019-06-26T12:00:00", Freight: 34.56, ShipCity: "Shanghai", ShipCountry: "China" },
+  { OrderID: 4, OrderDate: "2017-09-20T12:00:00", Freight: 45.67, ShipCity: "Hamburg", ShipCountry: "Germany" },
+  { OrderID: 5, OrderDate: "2017-12-12T12:00:00", Freight: 56.78, ShipCity: "Mumbai", ShipCountry: "India" },
+  { OrderID: 6, OrderDate: "2018-02-08T12:00:00", Freight: 67.89, ShipCity: "Shanghai", ShipCountry: "China" },
+  { OrderID: 7, OrderDate: "2018-05-05T12:00:00", Freight: 78.90, ShipCity: "Tokyo", ShipCountry: "Japan" },
+  { OrderID: 8, OrderDate: "2019-08-03T12:00:00", Freight: 89.01, ShipCity: "Port Klang", ShipCountry: "Malaysia" },
+  { OrderID: 9, OrderDate: "2018-10-29T12:00:00", Freight: 90.12, ShipCity: "Rotterdam", ShipCountry: "Netherlands" },
+  { OrderID: 10, OrderDate: "2018-01-23T12:00:00", Freight: 10.32, ShipCity: "Vancouver", ShipCountry: "Canada" },
+  { OrderID: 11, OrderDate: "2018-04-17T12:00:00", Freight: 21.43, ShipCity: "Colón", ShipCountry: "Panama" },
+  { OrderID: 12, OrderDate: "2017-07-11T12:00:00", Freight: 32.54, ShipCity: "Manila", ShipCountry: "Philippines" },
+  { OrderID: 13, OrderDate: "2017-10-24T12:00:00", Freight: 43.65, ShipCity: "Singapore", ShipCountry: "Singapore" },
+  { OrderID: 14, OrderDate: "2018-03-11T12:00:00", Freight: 54.76, ShipCity: "Busan", ShipCountry: "South Korea" },
+  { OrderID: 15, OrderDate: "2018-06-17T12:00:00", Freight: 65.87, ShipCity: "Shenzhen", ShipCountry: "China" },
+  { OrderID: 16, OrderDate: "2018-10-13T12:00:00", Freight: 76.98, ShipCity: "Hong Kong", ShipCountry: "China" },
+  { OrderID: 17, OrderDate: "2019-04-19T12:00:00", Freight: 87.09, ShipCity: "Dubai", ShipCountry: "UAE" },
+  { OrderID: 18, OrderDate: "2019-07-25T12:00:00", Freight: 98.21, ShipCity: "Felixstowe", ShipCountry: "UK" },
+  { OrderID: 19, OrderDate: "2017-09-22T12:00:00", Freight: 13.24, ShipCity: "Los Angeles", ShipCountry: "USA" },
+  { OrderID: 20, OrderDate: "2018-12-09T12:00:00", Freight: 35.46, ShipCity: "New York", ShipCountry: "USA" },
+  { OrderID: 21, OrderDate: "2018-02-04T12:00:00", Freight: 57.68, ShipCity: "Guangzhou", ShipCountry: "China" },
+  { OrderID: 22, OrderDate: "2019-05-16T12:00:00", Freight: 9.87, ShipCity: "Long Beach", ShipCountry: "USA" },
+  { OrderID: 23, OrderDate: "2019-08-18T12:00:00", Freight: 24.13, ShipCity: "Singapore", ShipCountry: "Singapore" }
+];
+var gridDataSource = new kendo.data.DataSource({
+    data: orderData,
+    schema: {
+        model: {
+          fields: {
+            OrderID: { type: "number" },
+            Freight: { type: "number" },
+            OrderDate: { type: "date" },
+            ShipCountry: { type: "string" },
+            ShipCity: { type: "string" }
+          }
+        }
+    },
+    pageSize: 10,
+    sort: {
+        field: "OrderDate",
+        dir: "desc"
+    }
+});
+
+$("#ordersGrid").kendoGrid({
+          dataSource: gridDataSource
+        });
+
+      });
+
+</script>
+
+        </body>
 
 </html>
