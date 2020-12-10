@@ -118,6 +118,9 @@
             </tr>
         </table>
         <br>
+        <p>
+            <button id="clearGridFilter">Show all countries</button>
+          </p>
         <div id="ordersGrid"></div>
         <div id="ordersChart"></div>
 
@@ -259,6 +262,11 @@ $("#ordersChart").kendoChart({
         value: country
     });
 }
+$("#clearGridFilter").kendoButton({
+  click: function(e) {
+    $("#ordersGrid").data("kendoGrid").dataSource.filter({});
+  }
+});
 </script>
 
         </body>
