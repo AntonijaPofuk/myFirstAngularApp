@@ -1,4 +1,4 @@
-var app = angular.module("mainApp", []);
+var app = angular.module("mainApp", ["kendo.directives"]);
 
 app.controller("loopCtrl", function ($scope) {
   var range = 10;
@@ -99,7 +99,14 @@ app.filter('Demofilter',function(){
   }
 });
 
-
+ app.controller("myKendoDatePicker", function($scope) {
+  $scope.monthPickerConfig = {
+    start  : "year",
+    depth  : "year",
+    format : "MMMM yyyy"
+  };
+});
+ 
 
 
 
