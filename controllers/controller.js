@@ -102,12 +102,34 @@ app.filter('Demofilter',function(){
  app.controller("myKendoDatePicker", function($scope) {
   $scope.monthPickerConfig = {
     start  : "year",
-    depth  : "year",
-    format : "MMMM yyyy"
+    depth  : "day",
+    format : "yyyy. MMMM dd.",
+    change : function(e) { 
+      // handler for "change" event
+    var datePicker = e.sender;
+    console.log("Choosen date is: " + datePicker.value());
+    $scope.choosenDate = datePicker.value();
+    $scope.selected = true;
+    $scope.$digest();
+  }
   };
 });
- 
+app.controller("myBirthsday", function($scope) {});
+app.controller("myOrientationMenu", function($scope) {
+  $scope.orientation = "horizontal";
+});
 
+app.controller("Host", function($scope) {
+    $scope.Show = function() {
+      $scope.editPopup.center();
+      $scope.editPopup.open();
+    }
+}).controller("Popup", function($scope) {
+    var datasources = [{ ID: 13, Name: "ID is 13" }, { ID: 14, Name: "ID is 14" }];
+    $scope.datasources = datasources;
+    var dataview = { DataSourceID: 14 };
+    $scope.dataview = dataview;
+});
 
 
 
