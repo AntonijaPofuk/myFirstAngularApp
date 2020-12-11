@@ -125,11 +125,81 @@ app.controller("Host", function($scope) {
       $scope.editPopup.open();
     }
 }).controller("Popup", function($scope) {
-    var datasources = [{ ID: 13, Name: "ID is 13" }, { ID: 14, Name: "ID is 14" }];
+    var datasources = [{ ID: 13, Name: "ID is 13" }, 
+    { ID: 14, Name: "ID is 14" }];
     $scope.datasources = datasources;
     var dataview = { DataSourceID: 14 };
     $scope.dataview = dataview;
 });
 
+app.controller("myUpdateCtrl", function($scope) {
+  $scope.gridData = new kendo.data.ObservableArray([
+    { artist: "Pink Floyd", track: "The dark side of the Moon" },
+    { artist: "The Beatles", track: "I've just seen a face" },
+    { artist: "Queen", track: "Innuendo" }
+  ]);
+  $scope.gridColumns = [
+    { field: "artist", title: "Artist" },
+    { field: "track", title: "Track" }
+  ];
+  $scope.update = function() {
+    $scope.gridData[0].set("track", "Hey you");
+  };
+  $scope.onChange = function(data){
+    $scope.selected = data;
+  };
+});
 
+app.controller("myGridCtrl", function ($scope) {
+  $scope.ds = new kendo.data.DataSource({
+    pageSize: 100,
+    data: records,
+    schema:{
+      model: {
+          fields: {
+              Ages: { type: "number" },
+              Name: { type: "string" },
+              Age: { type: "number" },
+              Color: { type: "string" }
+          }
+      }
+  },
+    group: {
+      field: "Ages", aggregates: [
+      { field: "Age", aggregate: "count" },
+      { field: "Age", aggregate: "sum"},
+      { field: "Age", aggregate: "average" },
+      { field: "Age", aggregate: "count" },
+      { field: "Name", aggregate: "count" }
 
+      ]
+  },
+    aggregate: [
+      { field: "Name", aggregate: "count" },
+      { field: "Age", aggregate: "count" },
+      { field: "Age", aggregate: "sum" },
+      { field: "Age", aggregate: "average" },
+      { field: "Age", aggregate: "min" },
+      { field: "Age", aggregate: "max" },
+    ],
+  });
+  $scope.mainGridOptions = {
+    height: 500,
+    columns: [
+      {
+        field: "Name",
+        title: "Name", aggregates: ["count"], footerTemplate: "Total Count: #=count#",
+        width: 200,
+        template: "{{ dataItem.Name }}"
+        
+      },
+      {
+        field: "Age",
+        title: "Age",
+        width: 80,
+        aggregates: ["sum"],
+        footerTemplate: "Total Sum: #=sum#"
+      },
+    ],
+  };
+});

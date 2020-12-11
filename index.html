@@ -4,8 +4,7 @@
 <head>
     <title>AngularApp | HandsOn</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
- 
+    <meta charset="utf-8"> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -21,6 +20,7 @@
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.3.1118/styles/kendo.default.min.css">
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.3.1118/styles/kendo.mobile.all.min.css"> 
     <script type="text/javascript" src="controllers/controller.js"></script>
+    <script type="text/javascript" src="data/database2.js"></script>
 
   </head>
 
@@ -28,7 +28,6 @@
     <h1>Welcome to my Angular site :) </h1> <br><br>
     <p>Hello <a href="https://docs.telerik.com/kendo-ui/intro/first-steps">Kendo UI for jQuery</a>!
         This is <strong id="kendoVersion"></strong>. version of Kendo.</p>
-
     <nav class="{{active}}">
         <a href="#" class="home" ng-click="active='home'">Home</a>
         <a href="dashboard.html" class="dashboard" ng-click="active='dashboard'">Dashboard</a>
@@ -135,7 +134,6 @@
       return "#00c";
     }
 }
-
     $(function() {
 $("#kendoVersion").text(kendo.version);
     var orderData = [
@@ -268,7 +266,13 @@ $("#clearGridFilter").kendoButton({
   }
 });
 </script>
+<div id="example" >
+  <div ng-controller="myGridCtrl">
+    <kendo-grid options="mainGridOptions" 
+    k-data-source="ds"></kendo-grid>
+  </div>
+</div>
 
-        </body>
+</body>
 
 </html>

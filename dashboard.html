@@ -187,5 +187,23 @@
     </div>
 </div>
 </div>  
+<div ng-controller="myUpdateCtrl">
+  <div kendo-grid
+       k-data-source="gridData"
+       k-columns="gridColumns"
+       k-selectable="true"
+       k-on-change="onChange(data)"></div>
+
+  <p ng-show="selected">
+    <label>Artist: <input ng-model="selected.artist" /></label>
+    <br />
+    <label>Track: <input ng-model="selected.track" /></label>
+  </p>
+
+  <button kendo-button ng-click="update()">
+    Update from code
+  </button>
+</div>
+
 </body>
 </html>
