@@ -152,12 +152,11 @@ app.controller("myUpdateCtrl", function($scope) {
 
 app.controller("myGridCtrl", function ($scope) {
   $scope.ds = new kendo.data.DataSource({
-    pageSize: 100,
+    pageSize: 5,
     data: records,
     schema:{
       model: {
           fields: {
-              Ages: { type: "number" },
               Name: { type: "string" },
               Age: { type: "number" },
               Color: { type: "string" }
@@ -171,7 +170,6 @@ app.controller("myGridCtrl", function ($scope) {
       { field: "Age", aggregate: "average" },
       { field: "Age", aggregate: "count" },
       { field: "Name", aggregate: "count" }
-
       ]
   },
     aggregate: [
@@ -185,6 +183,7 @@ app.controller("myGridCtrl", function ($scope) {
   });
   $scope.mainGridOptions = {
     height: 500,
+    pageable: true,
     columns: [
       {
         field: "Name",
