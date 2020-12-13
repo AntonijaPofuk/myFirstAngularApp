@@ -165,18 +165,14 @@ var gridDataSource = new kendo.data.DataSource({
     pageSize: 5
 });
 
-
-
 $("#ordersGrid").kendoGrid({
   dataSource: gridDataSource,
   dataBound: function(e) {
     var grid = e.sender,
         chart = $("#ordersChart").data("kendoChart");
-
     chart.dataSource.data(grid.dataSource.data());
     grid.unbind("dataBound");
-  },
-  
+  },  
   height: 400,
   pageable: true,
   sortable: true,
