@@ -14,6 +14,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -27,13 +31,17 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatCheckboxModule,
     MatInputModule,
     MatDatepickerModule,
+    MatMenuModule,
+    MatButtonModule,
     MatNativeDateModule,
     MatOptionModule,
     MatSelectModule,
     MatSliderModule,
     MatSlideToggleModule,
+    MatSidenavModule,
     MatIconModule,
     MatRadioModule,
+    MatToolbarModule,
     FormsModule,
     ReactiveFormsModule
   ],

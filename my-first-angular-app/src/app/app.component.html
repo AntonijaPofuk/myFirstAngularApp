@@ -1,3 +1,19 @@
+<mat-toolbar color = "primary">
+  <button mat-button [matMenuTriggerFor] = "menu" class = "gap">File</button>
+  <mat-menu #menu = "matMenu">
+    <button mat-menu-item>New</button>
+    <button mat-menu-item>Open</button>
+    <button mat-menu-item [matMenuTriggerFor] = "recent">Recent</button>
+ </mat-menu>
+ <mat-menu #recent = "matMenu">
+    <button mat-menu-item>File 1</button>
+    <button mat-menu-item>File 2</button>
+ </mat-menu>
+  <button class = "gap" mat-button >Edit</button>
+  <span class = "filler"></span> <!--empty space-->
+  <button class = "gap" mat-button >About</button>
+</mat-toolbar>
+
 <!-- Autocomplete form -->
 <form class = "tp-form">
   <mat-form-field class = "tp-full-width">
@@ -127,6 +143,7 @@
    <mat-checkbox class = "tp-margin" [(ngModel)] = "checked">Checked</mat-checkbox>
    <mat-checkbox class = "tp-margin" [(ngModel)] = "disabled">Disabled</mat-checkbox>
 </section>
+
 <!-- Footer -->
 <div>
   <footer>
