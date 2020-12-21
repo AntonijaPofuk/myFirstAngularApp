@@ -12,6 +12,8 @@ import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -22,16 +24,18 @@ import {MatRadioModule} from '@angular/material/radio';
     BrowserModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
+    MatCheckboxModule,
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatOptionModule, MatSelectModule, MatIconModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatIconModule,
     MatRadioModule,
     FormsModule,
-    MatCheckboxModule,
     ReactiveFormsModule
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]

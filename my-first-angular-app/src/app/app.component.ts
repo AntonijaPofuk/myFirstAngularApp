@@ -56,6 +56,11 @@ foods: Food[] = [
    {value: 'tacos', display: 'Tacos'}
 ];
 
+//slider values
+   invert = false;
+   thumbLabel = false;
+   value = 0;
+   vertical = false;
 }
 
 

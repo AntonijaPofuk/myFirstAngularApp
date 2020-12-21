@@ -97,6 +97,36 @@
   </mat-form-field>
   <p> Selected food: {{selectedValue}} </p>
 </form>
+
+<!--Slider-->
+<mat-slider
+   class = "tp-margin"
+   [disabled] = "disabled"
+   [invert] = "invert"
+   [thumbLabel] = "thumbLabel"
+   [(ngModel)] = "value"
+   [vertical] = "vertical">
+</mat-slider>
+<section class = "tp-section">
+   <mat-checkbox class = "tp-margin" [(ngModel)] = "thumbLabel">Show thumb label</mat-checkbox>
+</section>
+<section class = "tp-section">
+   <mat-checkbox class = "tp-margin" [(ngModel)] = "vertical">Vertical</mat-checkbox>
+   <mat-checkbox class = "tp-margin" [(ngModel)] = "invert">Inverted</mat-checkbox>
+</section>
+<section class = "tp-section">
+   <mat-checkbox class = "tp-margin" [(ngModel)] = "disabled">Disabled</mat-checkbox>
+</section>
+
+<!--Slide toggle-->
+<mat-slide-toggle   class = "tp-margin"
+   [checked] = "checked"   [disabled] = "disabled">
+   Slide!
+</mat-slide-toggle>
+<section class = "tp-section">
+   <mat-checkbox class = "tp-margin" [(ngModel)] = "checked">Checked</mat-checkbox>
+   <mat-checkbox class = "tp-margin" [(ngModel)] = "disabled">Disabled</mat-checkbox>
+</section>
 <!-- Footer -->
 <div>
   <footer>
