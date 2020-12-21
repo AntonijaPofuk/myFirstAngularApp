@@ -22,6 +22,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
     declarations: [AppComponent],
@@ -37,18 +39,20 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
         MatButtonModule,
         MatButtonToggleModule,
         MatChipsModule,
+        MatIconModule,
         MatNativeDateModule,
         MatOptionModule,
         MatSelectModule,
         MatSliderModule,
         MatSlideToggleModule,
         MatSidenavModule,
-        MatIconModule,
+        MatSnackBarModule,
         MatProgressBarModule,
         MatProgressSpinnerModule,
         MatRippleModule,
         MatRadioModule,
         MatToolbarModule,
+        MatTooltipModule,
         FormsModule,
         ReactiveFormsModule
     ],

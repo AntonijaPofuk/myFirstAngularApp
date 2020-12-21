@@ -14,6 +14,8 @@ export class AppComponent {
   constructor(){
      this.loadStates();
   }
+
+
   //build list of states as map of key-value pairs for Autocomplete form
   loadStates() {
      var allStates = 'Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware,\
@@ -70,5 +72,3 @@ foods: Food[] = [
    color: string;
 
 }
-
-
