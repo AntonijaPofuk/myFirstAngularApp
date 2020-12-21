@@ -61,6 +61,14 @@ foods: Food[] = [
    thumbLabel = false;
    value = 0;
    vertical = false;
+
+   color = 'primary';
+   mode = 'determinate';
+   bufferValue = 75;centered = false;
+   unbounded = false;
+   radius: number;
+   color: string;
+
 }
 
 
