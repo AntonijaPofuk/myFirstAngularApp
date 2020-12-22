@@ -25,7 +25,6 @@
    Click Me!
 </button>
 </mat-toolbar>
-
 <!--Button return value-->
 <mat-button-toggle-group #group = "matButtonToggleGroup">
   <mat-button-toggle value = "happy">
@@ -34,42 +33,95 @@
 </mat-button-toggle-group>
 <div class = "tp-selected-value">Selected value: {{group.value}}</div>
 
+<!--Card-->
+<mat-card class = "tp-card">
+  <mat-card-header>
+     <div mat-card-avatar class = "tp-header-image"></div>
+     <mat-card-title>About me</mat-card-title>
+     <mat-card-subtitle>My childhood</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src = "https://www.tutorialspoint.com/materialize/src/html5-mini-logo.jpg" alt = "Learn HTML5">
+  <mat-card-content>
+     <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultricies suscipit eleifend. Cras et sollicitudin lacus. Curabitur dictum massa sed mattis rutrum. Ut lorem ante, faucibus nec diam eu, sollicitudin fringilla purus. Nam condimentum elit fermentum lectus consequat lobortis. Sed imperdiet tortor quis venenatis condimentum. Proin vulputate tellus nisl, vitae varius ipsum scelerisque eu. Suspendisse convallis, mauris vel gravida varius, tellus dolor placerat ligula, a ullamcorper neque ante in nibh. Aenean in consectetur metus, eu viverra est. Mauris auctor, velit a egestas tincidunt, ligula mauris condimentum ipsum, eget efficitur neque leo at mi. Vestibulum tempor, felis vitae placerat rutrum, odio justo feugiat neque, nec luctus tortor tellus non elit. Vivamus vestibulum felis sit amet ligula ultricies venenatis. Cras dictum efficitur neque ac tristique. Nunc porta fermentum nunc, at elementum magna condimentum quis. Nullam vehicula ullamcorper ligula non rhoncus.
+    </p>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions>
+     <button mat-button>LIKE</button>
+     <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
+
+<!--Expansion panel-->
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+     <mat-panel-title>
+        Progress data
+     </mat-panel-title>
+     <mat-panel-description>
+        Choose buffer size and progres type
+     </mat-panel-description>
+  </mat-expansion-panel-header>
 <!--Progress value-->
-<section class = "tp-section">
-   <label class = "tp-margin">Mode:</label>
-   <mat-radio-group [(ngModel)] = "mode">
-      <mat-radio-button class = "tp-margin" value = "determinate">
-         Determinate
-      </mat-radio-button>
-      <mat-radio-button class = "tp-margin" value = "indeterminate">
-         Indeterminate
-      </mat-radio-button>
-      <mat-radio-button class = "tp-margin" value = "buffer">
-         Buffer
-      </mat-radio-button>
-      <mat-radio-button class = "tp-margin" value = "query">
-         Query
-      </mat-radio-button>
-   </mat-radio-group>
-</section>
-<section class = "tp-section" *ngIf = "mode === 'determinate' || mode === 'buffer'">
-   <label class = "tp-margin">Progress:</label>
-   <mat-slider class = "tp-margin" [(ngModel)] = "value"></mat-slider>
-</section>
-<section class = "tp-section" *ngIf = "mode === 'buffer'">
-   <label class = "tp-margin">Buffer:</label>
-   <mat-slider class = "tp-margin" [(ngModel)] = "bufferValue"></mat-slider>
-</section>
-<section class = "tp-section">
-   <label class = "tp-margin">Mode: {{mode}}</label>
-   <mat-progress-bar
-      class = "tp-margin"
-      [color] = "color"
-      [mode] = "mode"
-      [value] = "value"
-      [bufferValue] = "bufferValue">
-   </mat-progress-bar>
-</section>
+<mat-card class = "tp-card">
+  <section class = "tp-section">
+     <label class = "tp-margin">Mode:</label>
+     <mat-radio-group [(ngModel)] = "mode">
+        <mat-radio-button class = "tp-margin" value = "determinate">
+           Determinate
+        </mat-radio-button>
+        <mat-radio-button class = "tp-margin" value = "indeterminate">
+           Indeterminate
+        </mat-radio-button>
+        <mat-radio-button class = "tp-margin" value = "buffer">
+           Buffer
+        </mat-radio-button>
+        <mat-radio-button class = "tp-margin" value = "query">
+           Query
+        </mat-radio-button>
+     </mat-radio-group>
+  </section>
+  <section class = "tp-section" *ngIf = "mode === 'determinate' || mode === 'buffer'">
+     <label class = "tp-margin">Progress:</label>
+     <mat-slider class = "tp-margin" [(ngModel)] = "value"></mat-slider>
+  </section>
+  <section class = "tp-section" *ngIf = "mode === 'buffer'">
+     <label class = "tp-margin">Buffer:</label>
+     <mat-slider class = "tp-margin" [(ngModel)] = "bufferValue"></mat-slider>
+  </section>
+  <section class = "tp-section">
+     <label class = "tp-margin">Mode: {{mode}}</label>
+     <mat-progress-bar
+        class = "tp-margin"
+        [color] = "color"
+        [mode] = "mode"
+        [value] = "value"
+        [bufferValue] = "bufferValue">
+     </mat-progress-bar>
+  </section>
+  </mat-card>
+</mat-expansion-panel>
+
+<!--Grid layout-->
+<mat-grid-list cols = "4" rowHeight = "100px">
+  <mat-grid-tile
+  [colspan] = "3"
+  [rowspan] = "1">1
+  </mat-grid-tile>
+  <mat-grid-tile
+  [colspan] = "1"
+  [rowspan] = "2">2
+  </mat-grid-tile>
+  <mat-grid-tile
+  [colspan] = "1"
+  [rowspan] = "1">3
+  </mat-grid-tile>
+  <mat-grid-tile
+  [colspan] = "2"
+  [rowspan] = "1">4
+  </mat-grid-tile>
+</mat-grid-list>
 
 <!--Ripple on click-->
 <mat-checkbox [(ngModel)] = "centered" class = "tp-ripple-checkbox">Centered</mat-checkbox>

@@ -88,3 +88,13 @@
 .tp-ripple-form-field {
   margin: 0 12px 0 0;
 }
+.tp-card {
+  max-width: 400px;
+}
+.tp-header-image {
+  background-image: url('https://www.tutorialspoint.com/materialize/src/html5-mini-logo.jpg');
+  background-size: cover;
+}
+mat-grid-tile {
+  background: lightblue;
+}

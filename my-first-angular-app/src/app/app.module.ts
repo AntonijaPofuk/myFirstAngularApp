@@ -24,6 +24,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatCardModule} from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
     declarations: [AppComponent],
@@ -33,14 +37,18 @@ import {MatTooltipModule} from '@angular/material/tooltip';
         BrowserAnimationsModule,
         MatAutocompleteModule,
         MatCheckboxModule,
+        MatCardModule,
         MatInputModule,
         MatDatepickerModule,
+        MatDividerModule,
         MatMenuModule,
         MatButtonModule,
         MatButtonToggleModule,
         MatChipsModule,
         MatIconModule,
+        MatExpansionModule,
         MatNativeDateModule,
+        MatGridListModule,
         MatOptionModule,
         MatSelectModule,
         MatSliderModule,
