@@ -7,10 +7,7 @@
   width: 100%;
 }
 .tp-h2 {
-  margin: 10px;
-}
-.tp-margin {
-  margin: 0 10px;
+  margin: 5px;
 }
 .tp-container {
   display: flex;
@@ -29,9 +26,6 @@
 .tp-selected-value {
   margin: 15px 0;
 }
-.tp-margin {
-   margin: 30px;
-}
 .mat-slider-horizontal {
    width: 300px;
 }
@@ -48,7 +42,7 @@
 }
 .tp-section {
   display: flex;
-  align-content: center;
+  align-content: left;
   align-items: center;
   height: 60px;
   width:100px;
@@ -67,7 +61,7 @@
   margin: 15px 0;
 }
 .tp-margin {
-  margin: 0 10px;
+  margin: 0px 5px 0px 0px ;
 }
 .tp-ripple-container {
   cursor: pointer;

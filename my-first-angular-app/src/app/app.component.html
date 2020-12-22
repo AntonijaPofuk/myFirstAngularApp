@@ -25,13 +25,6 @@
    Click Me!
 </button>
 </mat-toolbar>
-<!--Button return value-->
-<mat-button-toggle-group #group = "matButtonToggleGroup">
-  <mat-button-toggle value = "happy">
-     <mat-icon>sentiment_very_satisfied</mat-icon>
-  </mat-button-toggle>
-</mat-button-toggle-group>
-<div class = "tp-selected-value">Selected value: {{group.value}}</div>
 
 <!--Card-->
 <mat-card class = "tp-card">
@@ -105,28 +98,71 @@
 
 <!--Grid layout-->
 <mat-grid-list cols = "4" rowHeight = "100px">
-  <mat-grid-tile
-  [colspan] = "3"
-  [rowspan] = "1">1
+    <mat-grid-tile  [colspan] = "3"  [rowspan] = "1">
+      <!-- Checkbox -->
+<section class="tp-ripple-checkbox">
+   <mat-checkbox  [(ngModel)] = "checked">Checked</mat-checkbox>
+   <mat-checkbox  [(ngModel)] = "indeterminate">Indeterminate</mat-checkbox>
+   <mat-checkbox  [(ngModel)] = "disabled">Disabled</mat-checkbox>
+    <mat-checkbox [(ngModel)] = "centered" >Centered</mat-checkbox>
+    <mat-checkbox  [(ngModel)] = "unbounded">Unbounded</mat-checkbox>
+</section>
   </mat-grid-tile>
-  <mat-grid-tile
-  [colspan] = "1"
-  [rowspan] = "2">2
+
+  <mat-grid-tile  [colspan] = "1"  [rowspan] = "2">
+    <!-- Autocomplete form -->
+<form class = "tp-form">
+  <mat-form-field class = "tp-full-width">
+     <input type = "text"
+        placeholder = "Start typing your country..."
+        aria-label = "Number"
+        matInput
+        [formControl] = "myControl"
+        [matAutocomplete] = "auto">
+     <mat-autocomplete #auto = "matAutocomplete">
+        <mat-option *ngFor = "let state of states" [value] = "state.value">
+           {{state.display}}
+        </mat-option>
+     </mat-autocomplete>
+  </mat-form-field>
+</form>
   </mat-grid-tile>
-  <mat-grid-tile
-  [colspan] = "1"
-  [rowspan] = "1">3
+
+  <mat-grid-tile  [colspan] = "1"  [rowspan] = "1">
+  <!--Button return value-->
+<mat-button-toggle-group #group = "matButtonToggleGroup">
+  <mat-button-toggle value = "happy">
+     <mat-icon>sentiment_very_satisfied</mat-icon>
+  </mat-button-toggle>
+</mat-button-toggle-group>
+<div class = "tp-selected-value">Selected value: {{group.value}}</div>
   </mat-grid-tile>
-  <mat-grid-tile
-  [colspan] = "2"
-  [rowspan] = "1">4
+
+  <mat-grid-tile  [colspan] = "2"  [rowspan] = "1">
+    <!-- Date picker -->
+<mat-form-field>
+  <input matInput [matDatepicker] = "picker" placeholder = "Choose a date">
+  <mat-datepicker-toggle matSuffix [for] = "picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
   </mat-grid-tile>
+
+  <mat-grid-tile  [colspan] = "4"  [rowspan] = "1">
+    <h2 class = "tp-h2">Result of checkbox options</h2><br>
+    <section class = "tp-section">
+       <mat-checkbox
+          class = "tp-margin"
+          [(ngModel)] = "checked"
+          [(indeterminate)] = "indeterminate"
+          [labelPosition] = "labelPosition"
+          [disabled] = "disabled">
+          Sample Checkbox
+       </mat-checkbox>
+    </section>
+    </mat-grid-tile>
 </mat-grid-list>
 
 <!--Ripple on click-->
-<mat-checkbox [(ngModel)] = "centered" class = "tp-ripple-checkbox">Centered</mat-checkbox>
-<mat-checkbox [(ngModel)] = "disabled" class = "tp-ripple-checkbox">Disabled</mat-checkbox>
-<mat-checkbox [(ngModel)] = "unbounded" class = "tp-ripple-checkbox">Unbounded</mat-checkbox>
 <section>
    <mat-form-field class = "tp-ripple-form-field">
       <input matInput [(ngModel)] = "radius" type = "number" placeholder = "Radius">
@@ -144,51 +180,6 @@
    [matRippleColor] = "color">
    Click me
 </div>
-
-<!-- Autocomplete form -->
-<form class = "tp-form">
-  <mat-form-field class = "tp-full-width">
-     <input type = "text"
-        placeholder = "US State"
-        aria-label = "Number"
-        matInput
-        [formControl] = "myControl"
-        [matAutocomplete] = "auto">
-     <mat-autocomplete #auto = "matAutocomplete">
-        <mat-option *ngFor = "let state of states" [value] = "state.value">
-           {{state.display}}
-        </mat-option>
-     </mat-autocomplete>
-  </mat-form-field>
-</form>
-
-<!-- Checkbox -->
-<h2 class = "tp-h2">Checkbox configuration</h2>
-<section class = "tp-section">
-   <mat-checkbox class = "tp-margin" [(ngModel)] = "checked">Checked</mat-checkbox>
-   <mat-checkbox class = "tp-margin" [(ngModel)] = "indeterminate">Indeterminate</mat-checkbox>
-</section>
-<section class = "tp-section">
-   <mat-checkbox class = "tp-margin" [(ngModel)] = "disabled">Disabled</mat-checkbox>
-</section>
-<h2 class = "tp-h2">Result</h2>
-<section class = "tp-section">
-   <mat-checkbox
-      class = "tp-margin"
-      [(ngModel)] = "checked"
-      [(indeterminate)] = "indeterminate"
-      [labelPosition] = "labelPosition"
-      [disabled] = "disabled">
-      Sample Checkbox
-   </mat-checkbox>
-</section>
-
-<!-- Date picker -->
-<mat-form-field>
-  <input matInput [matDatepicker] = "picker" placeholder = "Choose a date">
-  <mat-datepicker-toggle matSuffix [for] = "picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
 
 <!-- Input area -->
 <form class = "tp-full-width">
@@ -275,10 +266,56 @@
    <mat-checkbox class = "tp-margin" [(ngModel)] = "disabled">Disabled</mat-checkbox>
 </section>
 
+<mat-tab-group>
+  <mat-tab label = "A"> Apple </mat-tab>
+  <mat-tab label = "B"> Banana </mat-tab>
+  <mat-tab label = "C"> Carrot </mat-tab>
+</mat-tab-group>
+
+<!--Stepper
+<mat-horizontal-stepper [linear] = "isLinear" #stepper>
+  <mat-step [stepControl] = "firstFormGroup">
+     <form [formGroup] = "firstFormGroup">
+        <ng-template matStepLabel>Enter your name</ng-template>
+        <mat-form-field>
+           <input matInput placeholder = "Last name, First name" formControlName = "firstCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+     </form>
+  </mat-step>
+  <mat-step [stepControl] = "secondFormGroup">
+     <form [formGroup] = "secondFormGroup">
+        <ng-template matStepLabel>Enter your address</ng-template>
+        <mat-form-field>
+          <input matInput placeholder = "Address" formControlName = "secondCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+     </form>
+  </mat-step>
+  <mat-step>
+     <ng-template matStepLabel>Done</ng-template>
+        Details taken.
+     <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click) = "stepper.reset()">Reset</button>
+     </div>
+  </mat-step>
+</mat-horizontal-stepper>
+-->
 <!-- Footer -->
 <div>
   <footer>
       Love Angular?&nbsp;
+      <mat-list role = "list">
+        <mat-list-item role = "listitem">Yes</mat-list-item>
+        <mat-list-item role = "listitem">No</mat-list-item>
+        <mat-list-item role = "listitem">Maybe</mat-list-item>
+     </mat-list>
   </footer>
   <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
     <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
